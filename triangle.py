@@ -2,7 +2,7 @@ def triangle(n, total=None):
     if total is None:
         total = n
     if n <= 0:
-        return []
+        return [""]   # return one blank line instead of []
     rows = triangle(n - 1, total)
     stars = ' '.join(['*'] * n)
     spaces = ' ' * (total - n)
