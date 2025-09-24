@@ -11,10 +11,10 @@ while True:
     try:
         letter = input("Enter a letter: ").strip().lower()
     except EOFError:
-        print("\nGoodbye.")
+        print("Goodbye.")
         break
     except KeyboardInterrupt:
-        print("\nGoodbye.")
+        print("Goodbye.")
         break
 
     if letter == 'stop':
