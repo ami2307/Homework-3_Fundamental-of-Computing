@@ -1,18 +1,22 @@
 def ordinal(n):
-    if 11 <= n <= 13:
-        return str(n) + 'th'
-    if n % 10 == 1:
-        return str(n) + 'st'
-    if n % 10 == 2:
-        return str(n) + 'nd'
-    if n % 10 == 3:
-        return str(n) + 'rd'
-    return str(n) + 'th'
+    if 11 <= n % 100 <= 13:
+        suffix = 'th'
+    else:
+        suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')
+    return str(n) + suffix
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 while True:
-    letter = input("Enter a letter: ").strip().lower()
+    try:
+        letter = input("Enter a letter: ").strip().lower()
+    except EOFError:
+        print("\nGoodbye.")
+        break
+    except KeyboardInterrupt:
+        print("\nGoodbye.")
+        break
+
     if letter == 'stop':
         print("Goodbye.")
         break
@@ -22,5 +26,6 @@ while True:
     if letter not in alphabet:
         print("Please enter a letter from the English alphabet.")
         continue
+
     pos = alphabet.index(letter) + 1
     print(f"'{letter}' is the {ordinal(pos)} letter of the alphabet.")
