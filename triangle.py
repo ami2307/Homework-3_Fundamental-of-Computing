@@ -1,6 +1,6 @@
 def triangle(n, total=None):
     if total is None:
-        total = n  
+        total = n
     if n <= 0:
         return []
     rows = triangle(n - 1, total)
