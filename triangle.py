@@ -10,5 +10,10 @@ def triangle(n, total=None):
     return rows + [row_str]
 
 def show_triangle(n):
-    for line in triangle(n):
-        print(line)
+    lines = triangle(n)
+    if lines:
+        for line in lines:
+            print(line)
+    else:
+        print()  
+
